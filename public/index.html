@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechHub Rwanda</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🛒 TechHub Rwanda</div>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="cart-icon" onclick="toggleCart()">
+      🛒 Cart <span class="cart-count" id="cartCount">0</span>
+    </div>
+  </nav>
+  <section class="hero">
+    <h1>Best Laptops & Phones in Rwanda</h1>
+    <p>Quality tech at the best prices, delivered to your door in Kigali</p>
+    <a href="#products" class="btn">Shop Now</a>
+  </section>
+  <section id="products" class="products-section">
+    <h2>Our Products</h2>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+      <button class="filter-btn" onclick="filterProducts('Laptops')">Laptops 💻</button>
+      <button class="filter-btn" onclick="filterProducts('Phones')">Phones 📱</button>
+      <button class="filter-btn" onclick="filterProducts('Accessories')">Accessories 🎧</button>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="🔍 Search laptops, phones..." oninput="searchProducts()" />
+    </div>
+    <div class="products-grid" id="productsGrid">
+      <p>Loading products...</p>
+    </div>
+  </section>
+  <section class="recommendations-section" id="recommendations" style="display:none">
+    <h2>🤖 Recommended For You</h2>
+    <p class="rec-subtitle">Based on what you added to your cart</p>
+    <div class="products-grid" id="recommendationsGrid"></div>
+  </section>
+  <section id="about" class="about-section">
+    <h2>About TechHub Rwanda</h2>
+    <p>We are Kigali's trusted online store for laptops and smartphones. We offer genuine products, warranty, and fast delivery across Rwanda.</p>
+  </section>
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>📍 KK 508 ST, Gasabo, Kigali</p>
+    <p>📞 +250 794 306 522</p>
+    <p>✉️ info@techhub.rw</p>
+  </section>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cart-total">
+      <strong>Total: <span id="cartTotal">0</span> RWF</strong>
+    </div>
+    <button class="btn checkout-btn" onclick="goToCheckout()">Checkout</button>
+  </div>
+  <div class="modal" id="checkoutModal">
+    <div class="modal-content">
+      <h2>Checkout</h2>
+      <div id="orderSummary"></div>
+      <input type="text" id="custName" placeholder="Full Name" />
+      <input type="email" id="custEmail" placeholder="Email Address" />
+      <input type="tel" id="custPhone" placeholder="Phone Number" />
+      <input type="text" id="custAddress" placeholder="Delivery Address" />
+      <div class="payment-methods">
+        <h3>Select Payment Method</h3>
+        <label><input type="radio" name="payment" value="MTN" checked /> 📱 MTN Mobile Money</label>
+        <label><input type="radio" name="payment" value="Airtel" /> 📱 Airtel Money</label>
+        <label><input type="radio" name="payment" value="Cash" /> 💵 Cash on Delivery</label>
+      </div>
+      <button class="btn" onclick="placeOrder()">Place Order</button>
+      <button class="btn cancel-btn" onclick="closeCheckout()">Cancel</button>
+    </div>
+  </div>
+  <div class="modal" id="confirmModal">
+    <div class="modal-content">
+      <h2>✅ Order Confirmed!</h2>
+      <p id="confirmMessage"></p>
+      <button class="btn" onclick="closeConfirm()">Continue Shopping</button>
+    </div>
+  </div>
+  <footer>
+    <p>© 2026 TechHub Rwanda. All rights reserved.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
