@@ -28,6 +28,7 @@ function renderProducts(products) {
       <p class="price">${p.price.toLocaleString()} RWF</p>
       <p class="stock">In Stock: ${p.stock}</p>
       <button class="add-btn" onclick='addToCart(${JSON.stringify(p)})'>Add to Cart 🛒</button>
+<a href="product.html?id=${p.id}" class="details-btn">View Details 👁</a>
     </div>
   `).join('');
 }
